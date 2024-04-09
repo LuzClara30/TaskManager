@@ -1,2 +1,2 @@
-# retoTecnicoNCQ
+# retoTécnico
 NCQ proceso de selección
