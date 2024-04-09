@@ -1,0 +1,13 @@
+[
+    {
+        "svg": "/SidebarIcons/helper.svg",
+        "href": "/admin/Collaborators",
+        "name": "Colaboradores"
+    },
+    {
+        "svg": "/SidebarIcons/task.svg",
+        "href": "/admin/Task",
+        "name": "Tareas"
+    }
+   
+]
