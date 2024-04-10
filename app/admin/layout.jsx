@@ -2,7 +2,7 @@
 
 import Sidebar from "@/layouts/SideBar/SideBar";
 
-const layout = ({children}) => {
+const layout = ({children}) => {//children es un accesorio especial que pasa el contenido al componente de diseño
 
     return(
         <div className="flex p-3">
