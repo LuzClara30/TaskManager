@@ -9,15 +9,6 @@ export const getAllTasks = async () => {
         notifyError(error.response?.data.error)
     }
     }
-//Obtener una tarea
-export const getTask = async (id) => {
-    try {
-        const response = await axiosClient.get(`/task/${id}`);
-        return response.data;
-    } catch (error) {
-        notifyError(error.response?.data.error);
-    }
-    }
 //Crear una tarea
 export const createTask = async (task) => {
     try {

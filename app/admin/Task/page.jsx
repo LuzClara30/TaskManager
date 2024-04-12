@@ -4,7 +4,6 @@ import FilterColumn from './components/FilterColumn';
 import { useState, useEffect } from 'react';
 import {TaskList} from './components/TaskList';
 import {getAllTasks} from './services/task.services';
-import { Search } from '../../../components/Search'
 import { AddButton } from "@/components/AddButton";
 import { AddEditTaskModal } from './components/AddEditTaskModal';
 import {createTask, updateTask, deleteTask} from './services/task.services';
@@ -65,19 +64,6 @@ const onClose = () => {
         fecha_fin: "",
         notas: ""
     });
-};
-//Función para realizar la busqueda de tareas
-const handleSearch = (searchValue) => {
-  if (searchValue === "") {
-    setTasks(originalTasks);// Restaurar la lista original si la búsqueda está vacía
-    return;
-  }
-  //editar tarea
-
-  const filteredTasks = originalTasks.filter((task) => {
-    return task.description.toLowerCase().includes(searchValue.toLowerCase());// Filtrar tareas por descripcion
-  });
-  setTasks(filteredTasks);//Actualizar la lista de tareas con los tareas filtrados
 };
 //Función para editar una tarea
 //Recibe la tarea a editar como parámetro
@@ -248,7 +234,7 @@ const handleSubmit = async (e) => {
   return(
     <section className="w-full">
     <h1 className="font-bold text-2xl mb-5 mt-5 text-secondary">Administración de Tareas</h1>
-    <section className="flex flex-col sm:flex-row gap-3 items-center">
+    <section className="justify-items-start">
     <AddButton addElement={() => onClose()} name="Agregar Tarea" />
     <AddEditTaskModal
         taskId={taskId}//Enviar el id de la tarea seleccionada al modal
@@ -258,18 +244,13 @@ const handleSubmit = async (e) => {
         handleSubmit={handleSubmit}//esta función se encarga de manejar el envío del formulario
         formData={formData}//Enviar los datos del formulario al modal
       />
-      {/* Componente de búsqueda
-      <Search
-        placeholder="Buscar colaborador"
-        onChange={handleSearch}
-      /> */}
       <RangePicker
         currentTask={tasks}
         setTask={setTasks}
         originalTask={originalTasks}
       />
     </section>
-    <section className="shadow-lg p-5 mt-10">
+    <section className="shadow-lg p-5">
       {/* Muestra un mensaje de carga si isLoading es true */}
       {isLoading && (
         <div className="flex justify-center">

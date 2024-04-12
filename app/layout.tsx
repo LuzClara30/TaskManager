@@ -15,7 +15,8 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+{
   // Se Renderiza el componente Toaster en el layout
   // para que las notificaciones se muestren en toda la aplicación
   return (

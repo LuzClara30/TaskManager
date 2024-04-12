@@ -2,10 +2,10 @@ export const AddButton = ({ addElement, name }) => {// Botón para agregar un el
     return (
       <button
         type="button"
-        className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium 
+        className="inline-flex px-4 py-2 mb-4 border border-transparent font-medium 
         rounded-md shadow-sm text-white bg-secondary hover:bg-primary 
         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-        gap-2"
+         gap-2"
         onClick={addElement}// Ejecuta la función addElement cuando se hace clic en el botón
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 flex-shrink-0">

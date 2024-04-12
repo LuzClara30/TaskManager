@@ -1,4 +1,3 @@
-
 //Componente que muestra la lista de tareas en una tabla
 import { EditButton } from "@/components/EditButton";
 import { DeleteButton } from "@/components/DeleteButton";
@@ -47,8 +46,8 @@ export const TaskList = ({
   return (
     <div className="relative overflow-x-auto">
       {/* Tabla que muestra la lista de los tareas */}
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
           <tr>
             {/* Columna ID para la identificación de la tarea */}
             <th scope="col" className="px-6 py-3">
@@ -114,12 +113,12 @@ export const TaskList = ({
           {/* Mapeo de la lista de tareas */}
           {currentTask.map((item) => (
             <tr
-              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              className="bg-white border-b "
               key={item.id}
             >
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap "
               >
                 {item.id}
               </th>
@@ -127,9 +126,13 @@ export const TaskList = ({
               <td className="px-6 py-4">{item.descripcion}</td>
               {/* Filtrar la lista de colaboradores para obtener el nombre del colaborador con item.colaborador_id */}
               <td className="px-6 py-4">
-                {collaborators
-                  .filter((colaborador) => colaborador.id === item.colaborador_id)
-                  .map((colaborador) => colaborador.nombre)}
+                {item.colaborador_id !== null
+                  ? collaborators
+                      .filter(
+                        (colaborador) => colaborador.id === item.colaborador_id
+                      )
+                      .map((colaborador) => colaborador.nombre)
+                  : "No asignado"}
               </td>
               <td className="px-6 py-4">{item.estado}</td>
               <td className="px-6 py-4">{item.prioridad}</td>
